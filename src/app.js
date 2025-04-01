@@ -7,7 +7,6 @@ import userRouter from "./routes/user.js";
 import cors from "cors";
 const app = express();
 import "dotenv/config";
-const PORT = 3000;
 import { dbConnect } from "./config/database.js";
 dbConnect();
 app.use(
@@ -22,6 +21,6 @@ app.use("/", authRouter);
 app.use("/", profileRouter);
 app.use("/", requestRouter);
 app.use("/", userRouter);
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log("Server is listening");
 });
